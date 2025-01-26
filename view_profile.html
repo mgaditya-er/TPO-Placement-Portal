@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Header with Sticky Navigation -->
+    <header>
+        <div class="logo">
+            Collage placement Portal
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Student</a></li>
+                <li><a href="login.html">TPO</a></li>
+                <li><a href="#college-info">College Info</a></li>
+                <li><a href="#contact.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <img id="profileImage" src="default-profile.png" alt="Profile Image" class="profile-image">
+        <input type="file" id="imageUpload" style="display: none;" accept="image/*">
+        <button class="upload-btn" onclick="uploadImage()">Upload Image</button>
+
+        <div class="info-section" id="display-info">
+            <h3>Personal Information</h3>
+            <p><strong>Name:</strong> <span id="nameDisplay"></span></p>
+            <p><strong>Age:</strong> <span id="ageDisplay"></span></p>
+            <p><strong>Address:</strong> <span id="addressDisplay"></span></p>
+
+            <h3>Educational Information</h3>
+            <p><strong>Course:</strong> <span id="courseDisplay"></span></p>
+            <p><strong>Year:</strong> <span id="yearDisplay"></span></p>
+            <p><strong>Percentage:</strong> <span id="perDisplay"></span></p>
+        </div>
+
+        <!-- Input fields for editing -->
+        <div class="info-input" id="edit-info">
+            <h3>Personal Information</h3>
+            <input type="text" id="nameInput" placeholder="Name">
+            <input type="number" id="ageInput" placeholder="Age">
+            <input type="text" id="addressInput" placeholder="Address">
+
+            <h3>Educational Information</h3>
+            <input type="text" id="courseInput" placeholder="Course">
+            <input type="text" id="yearInput" placeholder="Year">
+            <input type="number" step="0.1" id="perInput" placeholder="Percentage">
+        </div>
+
+        <button class="edit-btn" id="editBtn" onclick="editProfile()">Edit Profile</button>
+        <button class="save-btn" id="saveBtn" onclick="saveProfile()" style="display:none;">Save Profile</button>
+    </div>
+
+
+    <script>
+        function uploadImage() {
+            document.getElementById('imageUpload').click();
+        }
+
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const imageUrl = reader.result;
+                document.getElementById('profileImage').src = imageUrl;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        });
+
+        function editProfile() {
+            // Show the input fields and hide the display information
+            document.getElementById('display-info').style.display = 'none';
+            document.getElementById('edit-info').style.display = 'block';
+            document.getElementById('editBtn').style.display = 'none';
+            document.getElementById('saveBtn').style.display = 'block';
+
+            // Pre-fill the input fields with current information
+            document.getElementById('nameInput').value = document.getElementById('nameDisplay').innerText;
+            document.getElementById('ageInput').value = document.getElementById('ageDisplay').innerText;
+            document.getElementById('addressInput').value = document.getElementById('addressDisplay').innerText;
+            document.getElementById('courseInput').value = document.getElementById('courseDisplay').innerText;
+            document.getElementById('yearInput').value = document.getElementById('yearDisplay').innerText;
+            document.getElementById('gpaInput').value = document.getElementById('gpaDisplay').innerText;
+        }
+
+        function saveProfile() {
+            // Update the display information with input values
+            document.getElementById('nameDisplay').innerText = document.getElementById('nameInput').value;
+            document.getElementById('ageDisplay').innerText = document.getElementById('ageInput').value;
+            document.getElementById('addressDisplay').innerText = document.getElementById('addressInput').value;
+            document.getElementById('courseDisplay').innerText = document.getElementById('courseInput').value;
+            document.getElementById('yearDisplay').innerText = document.getElementById('yearInput').value;
+            document.getElementById('gpaDisplay').innerText = document.getElementById('gpaInput').value;
+
+            // Switch back to display mode
+            document.getElementById('display-info').style.display = 'block';
+            document.getElementById('edit-info').style.display = 'none';
+            document.getElementById('editBtn').style.display = 'block';
+            document.getElementById('saveBtn').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

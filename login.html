@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Header with Sticky Navigation -->
+    <header>
+        <div class="logo">
+            Collage placement Portal
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Student</a></li>
+                <li><a href="login.html">TPO</a></li>
+                <li><a href="#college-info">College Info</a></li>
+                <li><a href="#contact.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="login-container">
+        <h1>Welcome to College Placement Portal</h1>
+        <!-- Login Form -->
+        <div id="loginFormContainer">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter Username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter Password" required>
+
+                <label for="role">Select Role:</label>
+                <select id="role">
+                    <option value="student">Student</option>
+                    <option value="tpo">TPO</option>
+                </select>
+                <button type="submit">Login</button>
+            </form>
+            <div id="errorMessage" class="error-message"></div>
+            <p>Don't have an account? <span id="showSignup">Sign Up</span></p>
+        </div>
+        <!-- Sign Up Form -->
+        <div id="signupFormContainer" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="newUsername">Username:</label>
+                <input type="text" id="newUsername" placeholder="Choose a Username" required>
+
+                <label for="newPassword">Password:</label>
+                <input type="password" id="newPassword" placeholder="Choose a Password" required>
+
+                <label for="newEnrollment">Enrollment No:</label>
+                <input type="text" id="newEnrollment" placeholder="Enter Enrollment No" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <div id="signupMessage" class="success-message"></div>
+            <p>Already have an account? <span id="showLogin">Login</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
