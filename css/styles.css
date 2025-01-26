@@ -1,11 +1,11 @@
 /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+  font-family: "Rubik", sans-serif;
+  width: 100%;
+}
 /* Header Styles */
 header {
     background-color: #007bff; /* Primary color for the navbar */
