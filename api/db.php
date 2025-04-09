@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'training_placement';
 $username = 'root';
-$password = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
